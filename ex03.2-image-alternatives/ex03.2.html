@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Ex 3.2 - Image alternatives</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- TODO - add the picture element with alternative images here. -->
+    <picture>
+      <source
+        media="(max-width: 640px)"
+        srcset="images/bird-cropped-1200.jpg 750w"
+        size="100vw"
+      />
+      <source
+        type="image/webp"
+        size="80vw"
+        srcset="images/bird-2400.webp 2400w, images/bird-1200.webp 1200w"
+      />
+      <source
+        type="image/jpeg"
+        size="80vw"
+        srcset="images/bird-2400.jpg 2400w, images/bird-1200.jpg 1200w"
+      />
+      <img src="images/bird-1200.jpg" alt="A bird" />
+    </picture>
+    <!--
+Note: the styling will work correctly only if th <img> element is a direct
+child of <body>!
+-->
+
+    <div class="card">
+      <img src="" alt="" />
+      <div class="card__body">
+        <button class="btn btn--red"></button>
+      </div>
+    </div>
+
+    <h1>Pictures are nice!</h1>
+  </body>
+</html>
