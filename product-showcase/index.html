@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product showcase</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article class="product">
+      <section class="showcase">
+        <aside class="showcase__thumbnails">
+          <img src="img/hat-norway.png" class="thumbnail" />
+          <img src="img/hat-sweden.png" class="thumbnail" />
+          <img src="img/hat.png" class="thumbnail" />
+        </aside>
+        <div class="showcase__images">
+          <img src="img/hat-norway.png" class="images" />
+          <img src="img/hat-sweden.png" class="images" />
+          <img src="img/hat.png" class="images" />
+        </div>
+      </section>
+      <section class="product-card">
+        <h2 class="product-card__title">Winter Hat</h2>
+        <p class="product-card__price">1299,-</p>
+        <form action="" class="product-card__form">
+          <div>
+            <label for="har">Select the type you want:</label>
+            <select name="hat" class="product-card__type" id="hat">
+              <option value="norway">Norway Hat</option>
+              <option value="sweden">Sweden Hat</option>
+              <option value="default">Default Hat</option>
+            </select>
+          </div>
+          <button type="submit" class="product-card__submit">
+            Add to cart
+          </button>
+        </form>
+      </section>
+      <section class="product-info">
+        <ul class="product-info__nav">
+          <li class="product-info__item active--item">Product Description</li>
+          <li class="product-info__item">Spesifications</li>
+        </ul>
+        <div class="product-info--wrapper">
+          <div class="product-info__desc product-info--div">
+            <p>
+              <strong
+                >Kåret til «beste villmarksgenser» i bladet Villmarksliv Jan.
+                2018</strong
+              >
+            </p>
+            <p>
+              Varm og behagelig ullgenser med høy glidelåshals. Egner seg som et
+              isolerende mellomlag på tur, eller komfortplagg på kalde dager.
+            </p>
+            <p>
+              Med Rav Sweater holder du deg god og varm. Denne tykke og
+              behagelige ullgenseren fra Ulvang egner seg perfekt alene, eller
+              som et isolerende mellomlag på skogs- eller fjellturen, men passer
+              også fint som komfortplagg på kalde dager.
+            </p>
+            <p>
+              Genseren er elastsisk, med relativt smal passform, og har ekstra
+              lange ermer med tommelhull, så du slipper at genseren sklir opp
+              under skalljakken. En ekstra høy hals med glidelås gir ekstra
+              varme.
+            </p>
+          </div>
+          <div class="product-info__specs product-info--div">
+            <table class="product-info__specs__table">
+              <tr>
+                <td>Half zip/Full zip</td>
+                <td>Half zip</td>
+              </tr>
+              <tr>
+                <td>Quality</td>
+                <td>Wool</td>
+              </tr>
+              <tr>
+                <td>User</td>
+                <td>Woman</td>
+              </tr>
+              <tr>
+                <td>Material</td>
+                <td>100% wool</td>
+              </tr>
+              <tr>
+                <td>Breathing</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Temperature regulating</td>
+                <td>Yes</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </article>
+    <script src="script.js"></script>
+  </body>
+</html>
