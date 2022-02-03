@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+}
+
+#heading {
+  background: rgb(255, 128, 51);
+  background: radial-gradient(
+    circle,
+    rgba(255, 128, 51, 1) 7%,
+    rgba(247, 243, 35, 1) 26%,
+    rgba(247, 243, 35, 0) 74%
+  );
+  background-position: -50px -100px;
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+}
+
+#globe-container {
+  background-image: url("globe.jpg");
+  background-size: contain;
+}
