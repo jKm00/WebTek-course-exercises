@@ -1,0 +1,32 @@
+.menu {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1em;
+    margin-bottom:1em;
+}
+
+.menu input {
+    grid-column: 1 / -1;
+    padding:1em;
+}
+
+.menu button {
+    border:none;
+    background:#1d1d1d;
+    color:#fff;
+    padding:1em;
+}
+
+.todos {
+    display:flex;
+    flex-direction: column;
+}
+
+.todo {
+    display:flex;
+    padding:.5em;
+}
+
+.todo:nth-child(odd) {
+    background:#eee;
+}
