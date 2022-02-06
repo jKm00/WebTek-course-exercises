@@ -36,21 +36,26 @@ export default function App() {
     setTodos(newTodos)
   }
 
-  function clearTasks() {
+  function clearCompletedTasks() {
     const newTodos = [...todos]
     const notCompleted = newTodos.filter(todo => !todo.complete)
     setTodos(notCompleted)
   }
 
+  function clearAllTasks() {
+    setTodos([])
+  }
+
   return (
-    <>
+    <div className='wrapper'>
       <p>Task left: {todos.filter(todo => !todo.complete).length}</p>
       <div className='menu'>
         <input ref={todoTitleRef} type='text' placeholder='Task title...'></input>
         <button onClick={addTask}>Add task</button>
-        <button onClick={clearTasks}>Clear completed tasks</button>
+        <button onClick={clearCompletedTasks}>Clear completed tasks</button>
+        <button onClick={clearAllTasks}>Clear all tasks</button>
       </div>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
-    </>
+    </div>
   )
 }
