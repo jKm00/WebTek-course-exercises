@@ -29,6 +29,7 @@ const BookPage = () => {
             title={book.title} 
             year={book.year} 
             pages={book.numberOfPages}
+            authorsId={book.authorsId}
         />
     )
 }
