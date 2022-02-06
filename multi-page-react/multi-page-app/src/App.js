@@ -6,6 +6,9 @@ import {
   Link
 } from "react-router-dom";
 
+// Styles
+import './styles/style.css';
+
 // Pages
 import Home from './pages/home'
 import Library from './pages/library'
