@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
-function Book() {
+import Book from '../components/book'
+
+const BookPage = () => {
     // Grab book id from url
     let { id } = useParams()
 
@@ -22,10 +24,13 @@ function Book() {
     }, [])
 
     return (
-        <div>
-            <h3>{book.title}</h3>
-        </div>
+        <Book 
+            bookId={book.id} 
+            title={book.title} 
+            year={book.year} 
+            pages={book.numberOfPages}
+        />
     )
 }
 
-export default Book
+export default BookPage

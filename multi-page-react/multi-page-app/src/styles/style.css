@@ -30,6 +30,10 @@ h5 {
     text-transform: uppercase;
 }
 
+.italic {
+    font-style: italic;
+}
+
 /* ==================
     2. Buttons
 ===================== */
@@ -44,6 +48,19 @@ h5 {
     border-radius: 5px;
 
     transition: background 150ms ease-in-out;
+}
+
+.btn--big {
+    padding:1em;
+}
+
+.btn--accent {
+    background:var(--clr-accent-400);
+}
+
+.btn--accent:hover,
+.btn--accent:focus {
+    background:var(--clr-accent-600);
 }
 
 /* ==================
@@ -101,15 +118,6 @@ h5 {
 
 .header__desc {
     margin-bottom:3em;
-}
-
-.btn--header {
-    background:var(--clr-accent-400);
-}
-
-.btn--header:hover,
-.btn--header:focus {
-    background:var(--clr-accent-600);
 }
 
 /* ==================
@@ -171,5 +179,52 @@ h5 {
 }
 
 .card__body__title {
+    margin-bottom:1em;
+}
+
+/* ==================
+    6. Book
+===================== */
+
+.book {
+    display:flex;
+    gap:1em;
+    width:clamp(500px, 80%, 1200px);
+    margin:4em auto;
+}
+
+.book__img {
+    flex: 1.25 1 0px;
+    background:#eee;
+}
+
+.book__info {
+    flex: 1 1 0px;
+    padding:2em;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: 0 5px 5px rgba(0,0,0,.1);
+}
+
+.book__info__list {
+    list-style:none;
+    margin-left:1em;
+    font-size: .8em;
+}
+
+.book__form {
+    display: flex;
+    gap:.5em;
+    flex-direction: column;
+}
+
+.book__label {
+    font-size: .8em;
+}
+
+.book__input {
+    padding:.5em;
     margin-bottom:1em;
 }

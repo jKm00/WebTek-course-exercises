@@ -10,9 +10,9 @@ import {
 import './styles/style.css';
 
 // Pages
-import Home from './pages/home'
-import Library from './pages/library'
-import Book from './pages/book'
+import HomePage from './pages/homePage'
+import LibraryPage from './pages/libraryPage'
+import BookPage from './pages/bookPage'
 
 // Components
 import Nav from './components/nav';
@@ -22,9 +22,9 @@ export default function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/books' element={<Library />} />
-        <Route path='/books/:id' element={<Book />} />
+        <Route exact path='/' element={<HomePage />} />
+        <Route path='/books' element={<LibraryPage />} />
+        <Route path='/books/:id' element={<BookPage />} />
       </Routes>
     </Router>
   )

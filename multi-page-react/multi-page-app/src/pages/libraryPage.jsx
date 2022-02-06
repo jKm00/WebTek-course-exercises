@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Card from '../components/card'
+
 class Library extends React.Component {
 
     state = {
@@ -25,14 +27,12 @@ class Library extends React.Component {
                         <p>Loading...</p>
                     ) : (
                         this.state.books.map(book => 
-                            <Link to={'/books/' + book.id} className='card' key={book.id}>
-                                <img src={'https://picsum.photos/200/250?random=' + book.id} alt="" />
-                                <div className="card__body">
-                                    <h3 className="card__body__title">{book.title}</h3>
-                                    <p className="card__body__year">Release year: {book.year}</p>
-                                    <p className="card__body__number-of-pages">Number of pages: {book.numberOfPages}</p>
-                                </div>
-                            </Link>
+                            <Card 
+                                bookId={book.id} 
+                                title={book.title} 
+                                year={book.year} 
+                                pages={book.numberOfPages}
+                            />
                         )
                     )}
                 </div>
