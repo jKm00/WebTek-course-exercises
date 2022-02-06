@@ -15,7 +15,6 @@ class Library extends React.Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({books: data, loading: false})
-        console.log(data);
     }
 
     render() {
@@ -27,7 +26,7 @@ class Library extends React.Component {
                         <p>Loading...</p>
                     ) : (
                         this.state.books.map(book => 
-                            <Card 
+                            <Card key={book.id}
                                 bookId={book.id} 
                                 title={book.title} 
                                 year={book.year} 
