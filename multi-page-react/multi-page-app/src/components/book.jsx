@@ -2,19 +2,18 @@ import React, { useState, useEffect } from 'react'
 
 const Book = ({ bookId, title, year, pages, authorsId }) => {
 
-    console.log(title)
-
+    const [loadingAuthors, setLoadingAuthors] = useState(true)
     const [authors, setAuthors] = useState([]);
 
     const fetchData = () => {
         authorsId?.map(authorId => {
-            console.log('hi')
             fetch('http://localhost:8080/authors/' + authorId)
                 .then(response => {
                     return response.json()
                 })
                 .then(data => {
                     setAuthors(oldAuthors => [...oldAuthors, data])
+                    setLoadingAuthors(false)
                 })
         })
     }
@@ -25,7 +24,7 @@ const Book = ({ bookId, title, year, pages, authorsId }) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log('Added to cart', authors)
+        console.log('Added to cart')
     }
 
     return (
@@ -36,6 +35,16 @@ const Book = ({ bookId, title, year, pages, authorsId }) => {
                 <ul className='book__info__list'>
                     <li className='book__info__item'><span className='italic'>Release year:</span> {year}</li>
                     <li className='book__info__item'><span className='italic'>Number of pages:</span> {pages}</li>
+                </ul>
+                <ul className='book__info__author__list'>
+                    <h4 className='book__info__author__title italic'>Authors:</h4>
+                    {loadingAuthors || !authors ? (
+                        <p className='book__info__author__loading-text'>Fetching authors...</p>
+                    ) : (
+                        authors?.map(author => {
+                            return <li key={author.id} className='book__info__author__item'>{author.firstName}</li>
+                        })
+                    )}
                 </ul>
                 <form className='book__form' onSubmit={onSubmit}>
                     <label htmlFor='bookCopies' className='book__label'>Numbers of copies:</label>

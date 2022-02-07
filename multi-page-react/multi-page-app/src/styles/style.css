@@ -216,21 +216,47 @@ h5 {
 .book__info {
     flex: 1 1 0px;
     padding:2em;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
 
     box-shadow: 0 5px 5px rgba(0,0,0,.1);
     min-height: 300px;
 }
 
+.book__title {
+    grid-column: 1 / -1;
+    margin-bottom:1em;
+}
+
 .book__info__list {
     list-style:none;
-    margin-left:1em;
     font-size: .8em;
 }
 
+.book__info__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom:1em;
+}
+
+.book__info__author__list {
+    list-style-type: none;
+    font-size: .8em;
+}
+
+.book__info__author__item::before {
+    content:'-';
+    margin-right:.5em;
+}
+
+.book__info__author__title {
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
 .book__form {
+    grid-column: 1 / -1;
     display: flex;
     gap:.5em;
     flex-direction: column;
