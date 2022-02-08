@@ -7,6 +7,7 @@ const BookPage = () => {
     // Grab book id from url
     let { id } = useParams()
 
+    const [loading, setLoading] = useState(true);
     const [book, setBook] = useState([])
 
     const fetchData = () => {
@@ -16,6 +17,7 @@ const BookPage = () => {
             })
             .then(data => {
                 setBook(data)
+                setLoading(false)
             })
     }
 
@@ -24,13 +26,17 @@ const BookPage = () => {
     }, [])
 
     return (
-        <Book 
-            bookId={book.id} 
-            title={book.title} 
-            year={book.year} 
-            pages={book.numberOfPages}
-            authorsId={book.authorsId}
-        />
+        loading || !book ? (
+            <p>Loading...</p>
+        ) : (
+            <Book 
+                bookId={book.id} 
+                title={book.title} 
+                year={book.year} 
+                pages={book.numberOfPages}
+                authorsId={book.authors}
+            />
+        )
     )
 }
 
