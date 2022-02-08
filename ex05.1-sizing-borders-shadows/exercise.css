@@ -42,6 +42,8 @@ main {
   width: 200px;
   height: 350px;
   margin-right: 3em;
+
+  transition: transform 150ms ease-in-out;
 }
 
 .card:first-of-type {
@@ -54,6 +56,11 @@ main {
 
 .card:last-of-type {
   margin: 0;
+}
+
+.card:hover {
+  transform: translate(0, -10px) scale(1.02);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15), 0 0 15px rgba(0, 255, 0, 0.15);
 }
 
 .card img {
