@@ -43,7 +43,7 @@ main {
   height: 350px;
   margin-right: 3em;
 
-  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
 }
 
 .card:first-of-type {
@@ -60,7 +60,7 @@ main {
 
 .card:hover {
   transform: translate(0, -10px) scale(1.02);
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15), 0 0 15px rgba(0, 255, 0, 0.15);
+  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 255, 0, 0.15);
 }
 
 .card img {
