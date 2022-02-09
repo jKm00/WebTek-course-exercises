@@ -1,0 +1,73 @@
+/* Put your styles here according to exercise description */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+main {
+  margin: auto;
+  width: 1000px;
+  padding: 1em 1em 2em 1em;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#info {
+  display: block;
+  margin-bottom: 2em;
+}
+
+#info h1 {
+  font-size: 2.5em;
+}
+
+.card {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 200px;
+  height: 350px;
+  margin-right: 3em;
+
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.card:first-of-type {
+  margin-left: 1em;
+}
+
+.card:nth-of-type(2) {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card:last-of-type {
+  margin: 0;
+}
+
+.card:hover {
+  transform: translate(0, -10px) scale(1.02);
+  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 255, 0, 0.15);
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
+.card-description {
+  padding: 1em;
+}
