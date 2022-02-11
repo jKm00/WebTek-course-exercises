@@ -65,7 +65,7 @@ button {
     flex-shrink: 0;
     height:100%;
     width:100%;
-    background:url('img/fjelltopp\ air.jpeg');
+    background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hiking-backpacks-1557337406.gif?crop=1.00xw:1.00xh;0,0&resize=980:*);
     background-size: cover;
     background-position: center;
 
@@ -86,6 +86,7 @@ button {
 
 .header-item__title {
     font-size: 3.5em;
+    text-shadow: 0px 0px 4px rgba(0,0,0,.3);
 }
 
 .header-item__desc {

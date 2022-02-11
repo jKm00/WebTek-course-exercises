@@ -3,6 +3,9 @@ import HeaderItem from './headerItem'
 
 function Header() {
 
+    const brandTitle = "XXS - Because the size doesnt matter"
+    const brandDesc = "Outdoors activity equipment, especially for hiking"
+
     const [loading, setLoading] = useState(true)
     const [books, setBooks] = useState([])
     const [headerItems, setHeaderItems] = useState([])
@@ -27,7 +30,7 @@ function Header() {
 
     function moveRight() {
         currentIndex++
-        if (currentIndex >= books.length) {
+        if (currentIndex > books.length) {
             currentIndex = 0
         }
         updateItems()
@@ -36,7 +39,7 @@ function Header() {
     function moveLeft() {
         currentIndex--
         if (currentIndex < 0) {
-            currentIndex = books.length - 1
+            currentIndex = books.length
         }
         updateItems()
     }
@@ -53,8 +56,9 @@ function Header() {
             <div>Loading...</div>
         ) : (
             <header className="header">
+                <HeaderItem title={brandTitle} desc={brandDesc} displayGif={true} />
                 {books.map(book => 
-                    <HeaderItem className="headerItem" key={book.id} title={book.title} year={book.year} id={book.id} />
+                    <HeaderItem className="headerItem" key={book.id} title={book.title} desc={book.year} id={book.id} />
                 )}
                 <button className="header__arrow header__arrow--left" onClick={moveLeft}>&#x3c;</button>
                 <button className="header__arrow header__arrow--right" onClick={moveRight}>&#x3e;</button>
