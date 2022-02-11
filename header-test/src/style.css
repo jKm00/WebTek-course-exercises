@@ -1,0 +1,93 @@
+*, *::before, *::after {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.btn {
+    display:inline-block;
+    background:#00ff99;
+    color:#1a1a1a;
+    text-decoration: none;
+    padding:.5em 1em;
+}
+
+/* ====================
+    Header
+    =================== */
+
+.header {
+    display:flex;
+    background:#eee;
+    height:70vh;
+    min-width: 600px;
+    position: relative;
+    overflow-x:hidden;
+
+    color:#fff;
+}
+
+.header__arrow {
+    --size:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.2);
+    height: var(--size);
+    width: var(--size);
+    font-size: 2em;
+
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.header__arrow--left {
+    left:1em;
+}
+
+.header__arrow--right {
+    right: 1em;
+}
+
+/* Header item */
+
+.header-item {
+    flex-shrink: 0;
+    height:100%;
+    width:100%;
+    background:url('img/fjelltopp\ air.jpeg');
+    background-size: cover;
+    background-position: center;
+
+    transition: transform 250ms ease-in-out;
+}
+
+.header-wrapper {
+    display:flex;
+    align-items: center;
+    width:clamp(400px, 75%, 1200px);
+    height:100%;
+    margin:auto;
+}
+
+.header-content {
+    padding:1em;
+}
+
+.header-item__title {
+    font-size: 3.5em;
+}
+
+.header-item__desc {
+    margin-bottom:3em;
+}
