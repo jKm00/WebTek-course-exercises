@@ -46,10 +46,16 @@ button {
     width: var(--size);
     font-size: 2em;
     color:#fff;
+    cursor: pointer;
 
     position: absolute;
     top:50%;
     transform: translateY(-50%);
+    transition: background 200ms ease-in-out;
+}
+
+.header__arrow:hover {
+    background:#00ff99;
 }
 
 .header__arrow--left {
@@ -66,7 +72,8 @@ button {
     flex-shrink: 0;
     height:100%;
     width:100%;
-    background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hiking-backpacks-1557337406.gif?crop=1.00xw:1.00xh;0,0&resize=980:*);
+    background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.8)),
+    url(https://i.pinimg.com/originals/82/47/83/824783d4f2b1b3accdcb8187ae9a590f.gif);
     background-size: cover;
     background-position: center;
 

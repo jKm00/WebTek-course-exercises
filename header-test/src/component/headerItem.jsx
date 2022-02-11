@@ -5,7 +5,7 @@ function HeaderItem({title, desc, id, displayGif}) {
 
     let background
     if (!displayGif) {
-        background = "url(https://picsum.photos/1200/600?random" + id + ")"
+        background = "linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.8)), url(https://picsum.photos/1200/600?random" + id + ")"
     }
 
     let buttonLink
