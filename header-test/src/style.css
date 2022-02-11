@@ -45,6 +45,7 @@ button {
     height: var(--size);
     width: var(--size);
     font-size: 2em;
+    color:#fff;
 
     position: absolute;
     top:50%;
