@@ -39,16 +39,27 @@ aside a {
     margin:.5em;
     border:1px dotted #000;
     text-align: center;
+    color:#000;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus,
+aside a:hover,
+aside a:focus {
+    background-color: #6047eb;
 }
 
 /* Grid layout */
 body {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
+    grid-template-rows:auto 1fr auto;
     grid-template-areas: 
     "header header header"
     "nav main aside"
     "footer footer footer";
+    min-height: 100vh;
 }
 
 header {
@@ -72,3 +83,17 @@ aside {
 footer {
     grid-area: footer;
 }
+
+/* Media queries */
+@media only screen and (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows:auto auto 1fr auto;
+        grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    }
+  }
