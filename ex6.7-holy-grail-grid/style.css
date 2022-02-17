@@ -1,0 +1,74 @@
+/* Restes */
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Bg colors */
+header,
+footer {
+    background-color: lightblue;
+}
+
+nav,
+aside {
+    background-color: mediumslateblue;
+}
+
+main {
+    background-color: bisque;
+}
+
+/* Text */
+header,
+footer {
+    text-align: center;
+    padding:2em 0;
+}
+
+/* Links */
+nav a,
+aside a {
+    display:block;
+    padding:1em 2em;
+    margin:.5em;
+    border:1px dotted #000;
+    text-align: center;
+}
+
+/* Grid layout */
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas: 
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+    min-height: 600px;
+    padding:1em;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
