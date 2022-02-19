@@ -1,0 +1,39 @@
+*, *::before, *::after {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+button {
+    border:none;
+    background:transparent;
+}
+
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    padding:3em;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+label {
+    margin-bottom:.5em;
+}
+
+input {
+    margin-bottom:2em;
+    padding:1em;
+}
+
+button {
+    background:lightcoral;
+    padding:1em;
+}
