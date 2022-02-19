@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
-function SignInForm({onSignIn}) {
+function SignInForm({onSignIn, goToSignUp}) {
     
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
@@ -18,6 +19,11 @@ function SignInForm({onSignIn}) {
         onSignIn(username, password)
     }
 
+    const toggleSignUp = (event) => {
+        event.preventDefault()
+        goToSignUp()
+    }
+
     return(
         <>
             <form>
@@ -26,6 +32,7 @@ function SignInForm({onSignIn}) {
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" onChange={updatePassword} />
                 <button type="submit" onClick={trySignIn}>Sign in</button>
+                <p>Don't have an accout? <a href="#" onClick={toggleSignUp}>Sign up here</a></p>
             </form>
         </>
     )

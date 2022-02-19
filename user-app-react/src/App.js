@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 
 const LOCAL_STORAGE_KEY = 'userApp.user'
 
 function App() {
 
+  const [displaySignUp, setDisplaySignUp] = useState(false)
   const [user, setUser] = useState({
     "uid": "",
     "username": ""
@@ -42,15 +44,37 @@ function App() {
     })
   }
 
+  const toggleSignUp = () => {
+    setDisplaySignUp(!displaySignUp)
+  }
+
+  const signUp = (username, password) => {
+    fetch('http://localhost:8080/users', {
+      method: 'POST',
+      headers: {
+        'Accept': 'applicaton/json',
+        'Content-Type': 'applicaiton/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+  }
+
   return (
-    user.uid === "" ? (
-      <SignInForm onSignIn={signIn} />
-    ) : (
-      <>
-      <h1>Hello {user.username}</h1>
-      <button onClick={signOut}>Sign out</button>
-      </>
-    )
+    <>
+      {displaySignUp ? (
+        <SignUpForm onSignUp={signUp} goToSignIn={toggleSignUp} />
+      ) : user.uid === "" ? (
+        <SignInForm onSignIn={signIn} goToSignUp={toggleSignUp} />
+      ) : (
+        <div className="profile">
+          <h1>Hello {user.username}</h1>
+          <button onClick={signOut}>Sign out</button>
+        </div>
+      )}
+    </>
   );
 }
 

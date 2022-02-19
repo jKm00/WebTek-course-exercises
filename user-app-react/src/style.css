@@ -24,6 +24,10 @@ form {
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
 
+form p {
+    text-align: center;
+}
+
 label {
     margin-bottom:.5em;
 }
@@ -36,4 +40,12 @@ input {
 button {
     background:lightcoral;
     padding:1em;
+    margin-bottom: .5em;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+    align-items: center;
 }
