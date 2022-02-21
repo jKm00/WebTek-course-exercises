@@ -24,16 +24,25 @@ function App() {
 
   const signIn = (username, password) => {
     if (username !== "" && password !== "") {
-      fetch('http://localhost:8080/users/' + username)
-        .then(response => response.json())
-        .then(data => {
-          if (password === data.password) {
-            setUser({
-              "uid": data.id,
-              "username": data.username
-            })
-          }
-        })
+      const xhr = new XMLHttpRequest();
+      const url = 'http://localhost:8080/users/login';
+      xhr.responseType = 'json'
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+        username: username,
+        password: password
+      }))
+
+      xhr.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          const response = xhr.response
+          setUser({
+            "uid": response.id,
+            "username": response.username
+          })
+        }
+      }
     }
   }
 
