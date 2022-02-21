@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 *, *::before, *::after {
     margin:0;
     padding:0;
@@ -10,7 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background:#eee;
-    font-family: 'Tahoma', 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card {
@@ -78,7 +80,7 @@ body {
     display: flex;
     flex-direction: column;
     gap:.25em;
-    font-size: .8em;
+    font-size: .9em;
     font-weight: bold;
     padding:1em 0;
     position: relative;
