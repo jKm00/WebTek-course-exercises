@@ -123,7 +123,48 @@
         /************************************
          Hero section
          ************************************/
-        /* TODO - put your styles here */
+        #hero-section {
+            display:flex;
+            flex-direction: column;
+            padding:7vw 5rem;
+            min-width: 100rem;
+            height: 40vw;
+            min-height: 370px;
+            max-height: 600px;
+            position: relative;
+        }
+
+        #hero-section img {
+            position: absolute;
+            inset: 0;
+            height: 40vw;
+            min-height: 370px;
+            max-height: 600px;
+            width: 100%;
+            object-fit: cover;
+            z-index: -10;
+        }
+
+        #hero-section::before {
+            content:'';
+            display:block;
+            position: absolute;
+            inset: 0;
+            background-color: #2a1100;
+            opacity: .75;
+            z-index: -5;
+        }
+
+        #hero-section h1 {
+            color:#fff;
+            font-size: 4.8rem;
+            font-weight: normal;
+            margin-bottom:10vw;
+        }
+
+        #hero-section button {
+            align-self: start;
+        }
 
 
         /************************************
@@ -202,6 +243,9 @@
         <!--        supported by all browsers)-->
 
         <!--        TODO - place the image here -->
+        <picture class="hero-images">
+            <img class="hero-img" src="img/compressed-hero-img.jpg" alt="Firemenn getting ready for practise">
+        </picture>
         <!--        Overlay it with color #2A1100, 75% opacity-->
         <!--        The image should fill the whole width of the main container-->
 
@@ -217,6 +261,7 @@
 
         <!--        TODO - place Call-To-action button - the same style as the one in the-->
         <!--        navigation, just bigger font and more padding-->
+        <button class="cta">Book your training</button>
 
     </section>
 
