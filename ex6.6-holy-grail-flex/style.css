@@ -1,0 +1,69 @@
+/* Resets */
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Bg colors */
+header, footer {
+    background:lightblue;
+}
+
+nav, aside {
+    background:lightcoral;
+}
+
+main {
+    background:lightseagreen;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    padding:2em 0;
+}
+
+/* Flex layout */
+.main--wrapper {
+    display:flex;
+}
+
+nav {
+    min-width: 150px;
+    order:-1;
+}
+
+nav a {
+    display:block;
+    border:dotted 1px #000;
+    text-align: center;
+    padding:1em 2em;
+    margin:.5em;
+}
+
+main {
+    padding:1em;
+    min-height: 600px;
+}
+
+aside {
+    min-width: 150px;
+}
+
+aside a {
+    display:block;
+    border:dotted 1px #000;
+    text-align: center;
+    padding:1em 2em;
+    margin:.5em;
+}
+
+footer {
+    text-align: center;
+    padding:2em 0;
+}

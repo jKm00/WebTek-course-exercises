@@ -1,0 +1,39 @@
+#brick-wall-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 100px);
+    grid-template-areas:
+    "brick3 brick3 brick2"
+    "brick4 brick6 brick6"
+    "brick5 brick5 brick1";
+}
+
+.brick {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#brick1{
+    grid-area: brick1;
+}
+
+#brick2 {
+    grid-area: brick2;
+}
+
+#brick3 {
+    grid-area: brick3;
+}
+
+#brick4 {
+    grid-area: brick4;
+}
+
+#brick5 {
+    grid-area: brick5;
+}
+
+#brick6 {
+    grid-area: brick6;
+}
