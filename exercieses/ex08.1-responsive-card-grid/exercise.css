@@ -1,1 +1,22 @@
 /* Put your styles here */
+@media only screen and (max-width: 1280px) {
+  #product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  #product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #info h1 {
+    font-size: 3.2rem;
+  }
+
+  #product-container {
+    grid-template-columns: 1fr;
+  }
+}
