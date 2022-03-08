@@ -1,0 +1,28 @@
+$ pwd		Print working directory
+$ cd		Change working directory
+$ ls		List contents of current directory
+$ ls -la		List contents with more info
+$ ls -l		List contents with medium info
+$ cat		Print contents of a file (Also: head & tall)
+$ less		See contents of a file (in simple editor)
+$ mv		Move files / rename
+$ mkdir		Make a new directory
+$ rm		Remove files. $ rm -rf, to remove directory
+$ nano		Edit content of a file
+$ history	See previous commands
+$ clear		Clear the screen
+
+$ sudo				Run a command as the root user
+$ sudo chown user:group file.ext	Change owner of a file
+$ less /etc/group		List out all the different groups
+
+$ chmod				Change permissions of a file
+  $ chmod g+w file.ext		(u = user, g = group, o = other, a = all) (r = read, w = write, x = modify)
+  $ chmod go-rwx file.ext		Can specify multiple groups and permissions at once
+
+$ ./file				Execute the file
+$ /or/full/path/to/the/file	Execute the file
+
+$ ln -s /path/to/file/file.ext .			Create link to current directory with the same name
+$ ln -s /path/to/file//file.ext newname.ext	Create link to file with a new name
+$ ln -s /path/direcotry newdirectoryname		Can also link to directories
