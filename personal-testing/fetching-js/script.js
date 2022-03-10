@@ -7,10 +7,17 @@ const bookPages = bookContainer.querySelector(".pages");
 
 async function fetchData(id) {
   let book;
+  const bookFound = false;
   await fetch("http://localhost:8080/books/" + id)
     .then((response) => response.json())
-    .then((data) => (book = data));
-  displayBook(book);
+    .then((data) => {
+      book = data;
+      bookFound = true;
+    })
+    .catch((error) => console.log(error));
+  if (bookFound) {
+    displayBook(book);
+  }
 }
 
 button.addEventListener("click", (e) => {
