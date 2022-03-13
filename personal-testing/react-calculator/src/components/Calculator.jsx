@@ -75,7 +75,6 @@ const Calculator = () => {
 
   const calculate = () => {
     // Calculate result
-    console.log(input);
     let result;
     if (tmp.length > 0) {
       if (input === 0) {
