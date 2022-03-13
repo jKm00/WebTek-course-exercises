@@ -1,124 +1,184 @@
 /* Restes */
-*, *::before, *::after {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-accent-4: #00ff99;
+  --clr-accent-6: #00cc7a;
+  --clr-accent-8: #00995c;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 1em;
+  background: #fff;
+  padding: 1em;
+  border-radius: 5px;
+  margin-top: 5em;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ===============
     Calculator 
     ==============*/
 .calculator {
-    display:grid;
-    grid-template-columns:repeat(4, 50px);
-    justify-content: center;
-    margin:5em auto;
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  justify-content: center;
+  gap: 0.5em;
 }
 
 .calculator input {
-    padding:1em;
+  padding: 1em;
+  border: none;
+  border-bottom: 2px solid #1d1d1d;
+}
+
+.calculator input:focus {
+  outline: none;
 }
 
 .calculator button {
-    padding:1em;
+  padding: 1em;
+  border: none;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.calculator button:hover {
+  background-color: #ddd;
+}
+
+.calculator button:active {
+  background-color: #ccc;
 }
 
 /* Align items in grid */
 .calculator input {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .calculator button:nth-of-type(1) {
-    grid-column: 1 / span 2;
-    grid-row: 6 / span 1;
+  grid-column: 1 / span 2;
+  grid-row: 6 / span 1;
 }
 
 .calculator button:nth-of-type(2) {
-    grid-column: 1 / span 1;
-    grid-row: 5 / span 1;
+  grid-column: 1 / span 1;
+  grid-row: 5 / span 1;
 }
 
 .calculator button:nth-of-type(3) {
-    grid-column: 2 / span 1;
-    grid-row: 5 / span 1;
+  grid-column: 2 / span 1;
+  grid-row: 5 / span 1;
 }
 
 .calculator button:nth-of-type(4) {
-    grid-column: 3 / span 1;
-    grid-row: 5 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 5 / span 1;
 }
 
 .calculator button:nth-of-type(5) {
-    grid-column: 1 / span 1;
-    grid-row: 4 / span 1;
+  grid-column: 1 / span 1;
+  grid-row: 4 / span 1;
 }
 
 .calculator button:nth-of-type(6) {
-    grid-column: 2 / span 1;
-    grid-row: 4 / span 1;
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
 }
 
 .calculator button:nth-of-type(7) {
-    grid-column: 3 / span 1;
-    grid-row: 4 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
 }
 
 .calculator button:nth-of-type(8) {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+  grid-row: 3 / span 1;
 }
 
 .calculator button:nth-of-type(9) {
-    grid-column: 2 / span 1;
-    grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
 }
 
 .calculator button:nth-of-type(10) {
-    grid-column: 3 / span 1;
-    grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 3 / span 1;
 }
 
 .calculator button:nth-of-type(11) {
-    grid-column: 3 / span 1;
-    grid-row: 6 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 6 / span 1;
 }
 
 .calculator button:nth-of-type(12) {
-    grid-column: 4 / span 1;
-    grid-row: 5 / span 1;
+  grid-column: 4 / span 1;
+  grid-row: 5 / span 1;
 }
 
 .calculator button:nth-of-type(13) {
-    grid-column: 4 / span 1;
-    grid-row: 4 / span 1;
+  grid-column: 4 / span 1;
+  grid-row: 4 / span 1;
 }
 
 .calculator button:nth-of-type(14) {
-    grid-column: 4 / span 1;
-    grid-row: 3 / span 1;
+  grid-column: 4 / span 1;
+  grid-row: 3 / span 1;
 }
 
 .calculator button:nth-of-type(15) {
-    grid-column: 4 / span 1;
-    grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+  grid-row: 2 / span 1;
 }
 
 .calculator button:nth-of-type(16) {
-    grid-column: 4 / span 1;
-    grid-row: 6 / span 1;
+  grid-column: 4 / span 1;
+  grid-row: 6 / span 1;
+  background-color: var(--clr-accent-4);
+}
+
+.calculator button:nth-of-type(16):hover {
+  background-color: var(--clr-accent-6);
+}
+
+.calculator button:nth-of-type(16):active {
+  background-color: var(--clr-accent-8);
 }
 
 .calculator button:nth-of-type(17) {
-    grid-column: 1 / span 2;
-    grid-row: 2 / span 1;
-    text-align: left;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 1;
+  text-align: left;
 }
 
 .calculator button:nth-of-type(18) {
-    grid-column: 3 / span 1;
-    grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+}
+
+/* ===============
+    Log
+    ==============*/
+.log {
+  min-width: 120px;
+  height: 292px;
+  overflow-y: auto;
+}
+
+.log ul {
+  list-style: none;
 }
