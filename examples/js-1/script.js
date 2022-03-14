@@ -68,13 +68,13 @@ function printSeconds() {
   if (i < 0) {
     div.style.backgroundImage =
       "url(https://media0.giphy.com/media/oe33xf3B50fsc/giphy.gif)";
+    clearTimeout(timer);
   } else {
     console.log("Countdown: ", i);
     i--;
   }
 }
-
-setInterval("printSeconds()", 1000);
+let timer = setInterval("printSeconds()", 1000);
 
 textInput.addEventListener("keyup", (e) => {
   console.log("Text was changed: ", textInput.value);
