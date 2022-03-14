@@ -1,18 +1,20 @@
 const body = document.querySelector("body");
-const inputs = document.querySelectorAll("input");
+const sliders = document.querySelectorAll("[data-slider]");
+const textInput = document.querySelector("[data-text]");
+const div = document.querySelector("[data-explosion]");
 
 let red = 255;
 let green = 255;
 let blue = 255;
 
-inputs.forEach((input) => {
-  input.addEventListener("mouseup", (e) => {
-    if (input.hasAttribute("data-red")) {
-      red = input.value;
-    } else if (input.hasAttribute("data-green")) {
-      green = input.value;
-    } else if (input.hasAttribute("data-blue")) {
-      blue = input.value;
+sliders.forEach((slide) => {
+  slide.addEventListener("mouseup", (e) => {
+    if (slide.hasAttribute("data-red")) {
+      red = slide.value;
+    } else if (slide.hasAttribute("data-green")) {
+      green = slide.value;
+    } else if (slide.hasAttribute("data-blue")) {
+      blue = slide.value;
     }
     changeBg(red, green, blue);
   });
@@ -50,3 +52,26 @@ function isEmail(email) {
   if (email.match(validRegex)) return true;
   return false;
 }
+
+function squareRootOf(number = 1764) {
+  return Math.sqrt(number);
+}
+
+console.log(squareRootOf());
+
+let i = 100;
+function printSeconds() {
+  if (i < 0) {
+    div.style.backgroundImage =
+      "url(https://media0.giphy.com/media/oe33xf3B50fsc/giphy.gif)";
+  } else {
+    console.log("Countdown: ", i);
+    i--;
+  }
+}
+
+setInterval("printSeconds()", 1000);
+
+textInput.addEventListener("keyup", (e) => {
+  console.log("Text was changed: ", textInput.value);
+});
