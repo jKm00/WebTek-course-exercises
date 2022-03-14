@@ -1,3 +1,7 @@
+body {
+  min-height: 500vh;
+}
+
 label {
   display: flex;
   flex-direction: column;

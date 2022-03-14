@@ -7,6 +7,10 @@ let red = 255;
 let green = 255;
 let blue = 255;
 
+window.addEventListener("scroll", (e) => {
+  div.style.transform = "translateY(" + window.scrollY * 0.5 + "px)";
+});
+
 sliders.forEach((slide) => {
   slide.addEventListener("mouseup", (e) => {
     if (slide.hasAttribute("data-red")) {
@@ -59,7 +63,7 @@ function squareRootOf(number = 1764) {
 
 console.log(squareRootOf());
 
-let i = 100;
+let i = 2;
 function printSeconds() {
   if (i < 0) {
     div.style.backgroundImage =
