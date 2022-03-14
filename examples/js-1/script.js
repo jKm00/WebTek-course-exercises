@@ -1,7 +1,9 @@
 const body = document.querySelector("body");
 const sliders = document.querySelectorAll("[data-slider]");
 const textInput = document.querySelector("[data-text]");
+const output = document.querySelector("[data-output]");
 const div = document.querySelector("[data-explosion]");
+const countdown = document.querySelector("[data-countdown]");
 
 let red = 255;
 let green = 255;
@@ -61,21 +63,20 @@ function squareRootOf(number = 1764) {
   return Math.sqrt(number);
 }
 
-console.log(squareRootOf());
-
-let i = 2;
+let i = 100;
 function printSeconds() {
   if (i < 0) {
     div.style.backgroundImage =
       "url(https://media0.giphy.com/media/oe33xf3B50fsc/giphy.gif)";
+    countdown.innerHTML = "";
     clearTimeout(timer);
   } else {
-    console.log("Countdown: ", i);
+    countdown.innerHTML = "Countdown: " + i;
     i--;
   }
 }
 let timer = setInterval("printSeconds()", 1000);
 
 textInput.addEventListener("keyup", (e) => {
-  console.log("Text was changed: ", textInput.value);
+  output.innerHTML = textInput.value;
 });
