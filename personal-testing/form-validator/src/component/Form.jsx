@@ -3,17 +3,20 @@ import { useState } from "react";
 function Form() {
   const errorState = ["invalid", "valid", "medium", "default"];
 
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
   const [validUsername, setValidUsername] = useState(false);
-  const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const usernameMsg = document.querySelector("[data-username-msg]");
 
   const [validEmail, setValidEmail] = useState(false);
-  const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
   const [validPwd, setValidPwd] = useState(false);
-  const [pwd, setPwd] = useState("");
   const [pwdStrength, setPwdStrength] = useState("");
   const pwdErrorMsg = document.querySelector("[data-pwd-error]");
 
@@ -24,7 +27,11 @@ function Form() {
 
   function validateUsername(event) {
     const newUsername = event.target.value;
-    setUsername(newUsername);
+    setUser({
+      username: newUsername,
+      email: user.email,
+      password: user.password,
+    });
 
     if (newUsername === "") {
       setValidUsername(false);
@@ -44,7 +51,11 @@ function Form() {
 
   function validateEmail(event) {
     const newEmail = event.target.value;
-    setEmail(newEmail);
+    setUser({
+      username: user.username,
+      email: newEmail,
+      password: user.password,
+    });
 
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -59,7 +70,11 @@ function Form() {
 
   function validatePassword(event) {
     const newPwd = event.target.value;
-    setPwd(newPwd);
+    setUser({
+      username: user.username,
+      email: user.email,
+      password: newPwd,
+    });
 
     let strongRegex = new RegExp(
       "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
@@ -100,7 +115,7 @@ function Form() {
     if (newPwdConfirm === "") {
       setValidPwdConfirm(false);
       setPwdConfirmErrorMsg("");
-    } else if (newPwdConfirm !== pwd) {
+    } else if (newPwdConfirm !== user.password) {
       setValidPwdConfirm(false);
       makeInvalid(pwdConfirmError);
       setPwdConfirmErrorMsg("Passwords must match");
@@ -137,6 +152,22 @@ function Form() {
     }
   }
 
+  function createUser(event) {
+    event.preventDefault();
+    if (validUsername && validEmail && validPwd && validPwdConfirm) {
+      console.log("User created: " + user);
+      setUser({
+        username: "",
+        email: "",
+        password: "",
+      });
+      setUsernameError("");
+      setEmailError("");
+      setPwdStrength("");
+      setPwdConfirmErrorMsg("");
+    }
+  }
+
   return (
     <form action="" method="POST">
       <h1>Sign up</h1>
@@ -145,7 +176,7 @@ function Form() {
         <input
           id="username"
           type="text"
-          value={username}
+          value={user.username}
           onChange={(event) => validateUsername(event)}
         ></input>
         <p className="errorMsg" data-username-msg>
@@ -157,7 +188,7 @@ function Form() {
         <input
           id="email"
           type="email"
-          value={email}
+          value={user.email}
           onChange={(event) => validateEmail(event)}
         />
         <p className="errorMsg valid">{emailError}</p>
@@ -167,7 +198,7 @@ function Form() {
         <input
           id="pwd"
           type="password"
-          value={pwd}
+          value={user.pwd}
           onChange={(event) => validatePassword(event)}
         />
         <p className="errorMsg" data-pwd-error>
@@ -186,7 +217,9 @@ function Form() {
           {pwdConfirmErrorMsg}
         </p>
       </div>
-      <button type="submit">Sign up</button>
+      <button type="submit" onClick={(event) => createUser(event)}>
+        Sign up
+      </button>
     </form>
   );
 }
