@@ -159,7 +159,7 @@ function Form() {
       const user = {
         username: inputs.username,
         email: inputs.email,
-        password: inputs.password + " Needs hashing",
+        password: inputs.password + "This should be hashed",
       };
       console.log(user);
     }
