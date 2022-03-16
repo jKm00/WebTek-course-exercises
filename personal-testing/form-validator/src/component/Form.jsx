@@ -29,7 +29,7 @@ function Form() {
     if (newUsername === "") {
       setValidUsername(false);
       setUsernameError("");
-    } else if (!newUsername.match(/^([a-zA-Z0-9_]){1,30}$/)) {
+    } else if (!newUsername.match(/^([a-zA-Z0-9-_]){1,30}$/)) {
       setValidUsername(false);
       makeInvalid(usernameMsg);
       setUsernameError(
