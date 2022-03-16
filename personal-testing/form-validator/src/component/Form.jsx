@@ -1,152 +1,148 @@
 import { useState } from "react";
 
 function Form() {
-  const errorState = ["invalid", "valid", "medium", "default"];
+  const errorState = ["default", "red", "orange", "green"];
 
-  const [user, setUser] = useState({
+  const [inputs, setInputs] = useState({
     username: "",
     email: "",
     password: "",
+    passwordConfirm: "",
   });
 
-  const [validUsername, setValidUsername] = useState(false);
-  const [usernameError, setUsernameError] = useState("");
-  const usernameMsg = document.querySelector("[data-username-msg]");
+  const [validation, setValidation] = useState({
+    username: false,
+    email: false,
+    password: false,
+    passwordConfirm: false,
+  });
 
-  const [validEmail, setValidEmail] = useState(false);
-  const [emailError, setEmailError] = useState("");
-
-  const [validPwd, setValidPwd] = useState(false);
-  const [pwdStrength, setPwdStrength] = useState("");
-  const pwdErrorMsg = document.querySelector("[data-pwd-error]");
-
-  const [validPwdConfirm, setValidPwdConfirm] = useState(false);
-  const [pwdConfirm, setPwdConfirm] = useState("");
-  const [pwdConfirmErrorMsg, setPwdConfirmErrorMsg] = useState("");
-  const pwdConfirmError = document.querySelector("[data-pwd-confirm-error]");
+  const [error, setError] = useState({
+    username: " ",
+    email: " ",
+    password: " ",
+    passwordConfirm: " ",
+  });
 
   function validateUsername(event) {
+    const usernameMsg = document.querySelector("[data-username-msg]");
     const newUsername = event.target.value;
-    setUser({
+    setInputs({
       username: newUsername,
-      email: user.email,
-      password: user.password,
+      email: inputs.email,
+      password: inputs.password,
+      passwordConfirm: inputs.passwordConfirm,
     });
 
     if (newUsername === "") {
-      setValidUsername(false);
-      setUsernameError("");
+      validation.username = false;
+      error.username = "";
     } else if (!newUsername.match(/^([a-zA-Z0-9-_]){1,30}$/)) {
-      setValidUsername(false);
-      makeInvalid(usernameMsg);
-      setUsernameError(
-        "Username must be between 8 and 30 characters and only contain letters and numbers"
-      );
+      validation.username = false;
+      error.username =
+        "Can only contain letters and numbers. Must be under 30 characters.";
+      changeClass(usernameMsg, errorState[1]);
     } else {
-      setValidUsername(true);
-      makeValid(usernameMsg);
-      setUsernameError("Valid username");
+      validation.username = true;
+      error.username = "Valid username";
+      changeClass(usernameMsg, errorState[3]);
     }
   }
 
   function validateEmail(event) {
     const newEmail = event.target.value;
-    setUser({
-      username: user.username,
+    setInputs({
+      username: inputs.username,
       email: newEmail,
-      password: user.password,
+      password: inputs.password,
+      passwordConfirm: inputs.passwordConfirm,
     });
 
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (newEmail.match(regex)) {
-      setValidEmail(true);
-      setEmailError("Valid email!");
+    if (newEmail === "" || !newEmail.match(regex)) {
+      validation.email = false;
+      error.email = "";
     } else {
-      setValidEmail(false);
-      setEmailError("");
+      validation.email = true;
+      error.email = "Valid email";
     }
   }
 
   function validatePassword(event) {
-    const newPwd = event.target.value;
-    setUser({
-      username: user.username,
-      email: user.email,
-      password: newPwd,
+    const passwordMsg = document.querySelector("[data-password-msg]");
+    const newPassword = event.target.value;
+    setInputs({
+      username: inputs.username,
+      email: inputs.email,
+      password: newPassword,
+      passwordConfirm: inputs.passwordConfirm,
     });
 
-    let strongRegex = new RegExp(
+    const strongRegex = new RegExp(
       "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
       "g"
     );
-    let mediumRegex = new RegExp(
+    const mediumRegex = new RegExp(
       "^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$",
       "g"
     );
-    let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+    const enoughRegex = new RegExp("(?=.{8,}).*", "g");
 
-    if (newPwd === "") {
-      setValidPwd(false);
-      setPwdStrength("");
-    } else if (newPwd.match(strongRegex)) {
-      setValidPwd(true);
-      makeValid(pwdErrorMsg);
-      setPwdStrength("Very strong");
-    } else if (newPwd.match(mediumRegex)) {
-      setValidPwd(true);
-      makeMedium(pwdErrorMsg);
-      setPwdStrength("Medium");
-    } else if (newPwd.match(enoughRegex)) {
-      setValidPwd(true);
-      makeInvalid(pwdErrorMsg);
-      setPwdStrength("Weak");
+    if (newPassword === "") {
+      validation.password = false;
+      error.password = "";
+    } else if (newPassword.match(strongRegex)) {
+      validation.password = true;
+      error.password = "Very strong";
+      changeClass(passwordMsg, errorState[3]);
+    } else if (newPassword.match(mediumRegex)) {
+      validation.password = true;
+      error.password = "Medium";
+      changeClass(passwordMsg, errorState[2]);
+    } else if (newPassword.match(enoughRegex)) {
+      validation.password = true;
+      error.password = "Weak";
+      changeClass(passwordMsg, errorState[1]);
     } else {
-      setValidPwd(false);
-      makeDefault(pwdErrorMsg);
-      setPwdStrength("More characters");
+      validation.password = false;
+      error.password = "More character";
+      changeClass(passwordMsg, errorState[0]);
     }
   }
 
   function validatePasswordConfirm(event) {
-    const newPwdConfirm = event.target.value;
-    setPwdConfirm(newPwdConfirm);
+    const passwordConfirmMsg = document.querySelector(
+      "[data-password-confirm-msg]"
+    );
+    const newPasswordConfirm = event.target.value;
+    setInputs({
+      username: inputs.username,
+      email: inputs.email,
+      password: inputs.password,
+      passwordConfirm: newPasswordConfirm,
+    });
 
-    if (newPwdConfirm === "") {
-      setValidPwdConfirm(false);
-      setPwdConfirmErrorMsg("");
-    } else if (newPwdConfirm !== user.password) {
-      setValidPwdConfirm(false);
-      makeInvalid(pwdConfirmError);
-      setPwdConfirmErrorMsg("Passwords must match");
+    if (newPasswordConfirm === "") {
+      validation.passwordConfirm = false;
+      error.passwordConfirm = "";
+    } else if (newPasswordConfirm !== inputs.password) {
+      validation.passwordConfirm = false;
+      error.passwordConfirm = "Passwords must match";
+      changeClass(passwordConfirmMsg, errorState[1]);
     } else {
-      setValidPwdConfirm(true);
-      makeValid(pwdConfirmError);
-      setPwdConfirmErrorMsg("Matching passwords");
+      validation.passwordConfirm = true;
+      error.passwordConfirm = "Matching passwords";
+      changeClass(passwordConfirmMsg, errorState[3]);
     }
   }
 
-  function makeValid(element) {
-    removeErrorStates(element);
-    element.classList.add("valid");
+  function changeClass(element, className) {
+    removeClasses(element);
+    element.classList.add(className);
   }
 
-  function makeInvalid(element) {
-    removeErrorStates(element);
-    element.classList.add("invalid");
-  }
-
-  function makeMedium(element) {
-    removeErrorStates(element);
-    element.classList.add("medium");
-  }
-
-  function makeDefault(element) {
-    removeErrorStates(element);
-    element.classList.add("default");
-  }
-
-  function removeErrorStates(element) {
+  function removeClasses(element) {
     for (const index in errorState) {
       element.classList.remove(errorState[index]);
     }
@@ -154,17 +150,18 @@ function Form() {
 
   function createUser(event) {
     event.preventDefault();
-    if (validUsername && validEmail && validPwd && validPwdConfirm) {
-      console.log("User created: " + user);
-      setUser({
-        username: "",
-        email: "",
-        password: "",
-      });
-      setUsernameError("");
-      setEmailError("");
-      setPwdStrength("");
-      setPwdConfirmErrorMsg("");
+    if (
+      validation.username &&
+      validation.email &&
+      validation.password &&
+      validation.passwordConfirm
+    ) {
+      const user = {
+        username: inputs.username,
+        email: inputs.email,
+        password: inputs.password + " Needs hashing",
+      };
+      console.log(user);
     }
   }
 
@@ -176,11 +173,11 @@ function Form() {
         <input
           id="username"
           type="text"
-          value={user.username}
+          value={inputs.username}
           onChange={(event) => validateUsername(event)}
         ></input>
         <p className="errorMsg" data-username-msg>
-          {usernameError}
+          {error.username}
         </p>
       </div>
       <div>
@@ -188,21 +185,21 @@ function Form() {
         <input
           id="email"
           type="email"
-          value={user.email}
+          value={inputs.email}
           onChange={(event) => validateEmail(event)}
         />
-        <p className="errorMsg valid">{emailError}</p>
+        <p className="errorMsg valid">{error.email}</p>
       </div>
       <div>
         <label htmlFor="pwd">Password</label>
         <input
           id="pwd"
           type="password"
-          value={user.pwd}
+          value={inputs.pwd}
           onChange={(event) => validatePassword(event)}
         />
-        <p className="errorMsg" data-pwd-error>
-          {pwdStrength}
+        <p className="errorMsg" data-password-msg>
+          {error.password}
         </p>
       </div>
       <div>
@@ -210,11 +207,11 @@ function Form() {
         <input
           id="pwdConfirm"
           type="password"
-          value={pwdConfirm}
+          value={inputs.passwordConfirm}
           onChange={(event) => validatePasswordConfirm(event)}
         />
-        <p className="errorMsg invalid" data-pwd-confirm-error>
-          {pwdConfirmErrorMsg}
+        <p className="errorMsg" data-password-confirm-msg>
+          {error.passwordConfirm}
         </p>
       </div>
       <button type="submit" onClick={(event) => createUser(event)}>

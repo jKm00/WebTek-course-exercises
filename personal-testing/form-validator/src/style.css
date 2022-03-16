@@ -68,15 +68,15 @@ form > div > input:focus {
   line-height: 1em;
 }
 
-.valid {
+.green {
   color: #00cc00;
 }
 
-.invalid {
+.red {
   color: red;
 }
 
-.medium {
+.orange {
   color: orange;
 }
 
