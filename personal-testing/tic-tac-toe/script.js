@@ -28,7 +28,7 @@ resetBtn.addEventListener("click", (e) => {
     div.classList.remove("x");
     div.classList.remove("occupied");
     div.innerHTML = "";
-    div.style.backgroundColor = "transparent";
+    div.classList.remove("winnerDiv");
     firstPlayer = true;
     winner.innerHTML = "";
   });
@@ -65,8 +65,10 @@ function checkLine(div1, div2, div3, player) {
 }
 
 function declareWinner(div1, div2, div3, player) {
-  divs[div1].style.backgroundColor = winnerColor;
-  divs[div2].style.backgroundColor = winnerColor;
-  divs[div3].style.backgroundColor = winnerColor;
+  divs[div1].classList.add("winnerDiv");
+  divs[div2].classList.add("winnerDiv");
+  divs[div3].classList.add("winnerDiv");
+  divs[div2].style.animationDelay = "50ms";
+  divs[div3].style.animationDelay = "100ms";
   winner.innerHTML = player;
 }
