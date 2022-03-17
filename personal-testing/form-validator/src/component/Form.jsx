@@ -58,8 +58,7 @@ function Form() {
       passwordConfirm: inputs.passwordConfirm,
     });
 
-    const regex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (newEmail === "" || !newEmail.match(regex)) {
       validation.email = false;
       error.email = "";
@@ -188,7 +187,7 @@ function Form() {
           value={inputs.email}
           onChange={(event) => validateEmail(event)}
         />
-        <p className="errorMsg valid">{error.email}</p>
+        <p className="errorMsg green">{error.email}</p>
       </div>
       <div>
         <label htmlFor="pwd">Password</label>
