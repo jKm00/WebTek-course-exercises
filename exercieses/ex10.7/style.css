@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #1d1d1d;
+}
