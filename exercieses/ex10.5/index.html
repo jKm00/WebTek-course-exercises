@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exersice 10.5</title>
+  </head>
+  <body onload="onPageLoad()">
+    <p class="greeting">Loading...</p>
+    <p class="timer">
+      <span class="time">0</span> seconds have passed since the page was loaded
+    </p>
+
+    <div class="calculator">
+      <input type="number" data-first-value />
+      *
+      <input type="number" data-second-value />
+      =
+      <span class="result" data-result></span><br />
+      <button onClick="doCalculation()">Calculate</button>
+    </div>
+
+    <script>
+      const greeting = document.querySelector(".greeting");
+      const timerSpan = document.querySelector(".time");
+      let timer = 0;
+
+      function onPageLoad() {
+        greeting.innerHTML = "Hello";
+        let interval = setInterval("updateTimer()", 1000);
+      }
+
+      function updateTimer() {
+        timer++;
+        timerSpan.innerHTML = timer;
+      }
+
+      function doCalculation() {
+        const firstValue = document.querySelector("[data-first-value]").value;
+        const secondValue = document.querySelector("[data-second-value]").value;
+        const result = document.querySelector("[data-result]");
+
+        if (firstValue === "" || secondValue === "") return;
+
+        result.innerHTML = parseInt(firstValue) * parseInt(secondValue);
+      }
+    </script>
+  </body>
+</html>
