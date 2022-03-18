@@ -54,7 +54,7 @@ function updateTimer() {
 
 function endGame() {
   clearTimeout(interval);
-  target.removeEventListener("click", addScore);
+  target.removeEventListener("click", onHit);
   menu.classList.remove("hidden");
   resetBtn.classList.remove("hidden");
 }
