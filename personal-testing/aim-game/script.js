@@ -1,26 +1,25 @@
 const menu = document.querySelector(".menu");
 const startBtn = document.querySelector(".btn-start");
 const resetBtn = document.querySelector(".btn-reset");
-const square = document.querySelector(".square");
+const target = document.querySelector(".square");
 const scoreLabel = document.querySelector(".score-label");
 const timerLabel = document.querySelector(".timer-label");
 const boardHeight = document.querySelector(".board").clientHeight;
 const boardWidth = document.querySelector(".board").clientWidth;
 
 const startTime = 30;
-const squareSize = 25;
+const targetSize = 25;
 
 let score = 0;
 let timer = startTime;
-let started = false;
 let interval;
 
 startBtn.addEventListener("click", (e) => {
   startBtn.classList.add("hidden");
   menu.classList.add("hidden");
-  interval = setInterval("decrementTimer()", 1000);
-  square.addEventListener("click", addScore);
-  moveSquare();
+  interval = setInterval("updateTimer()", 1000);
+  target.addEventListener("click", onHit);
+  moveTarget();
 });
 
 resetBtn.addEventListener("click", (e) => {
@@ -45,7 +44,7 @@ function initialize() {
   timerLabel.innerText = timer;
 }
 
-function decrementTimer() {
+function updateTimer() {
   timer--;
   timerLabel.innerText = timer;
   if (timer === 0) {
@@ -55,20 +54,20 @@ function decrementTimer() {
 
 function endGame() {
   clearTimeout(interval);
-  square.removeEventListener("click", addScore);
+  target.removeEventListener("click", addScore);
   menu.classList.remove("hidden");
   resetBtn.classList.remove("hidden");
 }
 
-function addScore() {
+function onHit() {
   score++;
   scoreLabel.innerText = score;
-  moveSquare();
+  moveTarget();
 }
 
-function moveSquare() {
-  xPos = generateRandom(boardWidth - squareSize);
-  yPos = generateRandom(boardHeight - squareSize);
-  square.style.top = yPos + "px";
-  square.style.left = xPos + "px";
+function moveTarget() {
+  xPos = generateRandom(boardWidth - targetSize);
+  yPos = generateRandom(boardHeight - targetSize);
+  target.style.top = yPos + "px";
+  target.style.left = xPos + "px";
 }
