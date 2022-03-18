@@ -9,3 +9,7 @@ window.addEventListener("load", (e) => {
     }
   }
 });
+
+// Another alternative
+const even = document.querySelectorAll(".inner:nth-child(even)");
+const odd = document.querySelectorAll(".inner:nth-child(odd)");
