@@ -50,7 +50,7 @@ function checkForWinner(player) {
   } else if (checkLine(0, 4, 8, player)) {
     declareWinner(0, 4, 8, player);
   } else if (checkLine(2, 4, 6, player)) {
-    declareWinner(2, 4, 6, player);
+    declareWinner(6, 4, 2, player);
   }
 }
 
