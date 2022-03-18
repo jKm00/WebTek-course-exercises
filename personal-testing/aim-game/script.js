@@ -1,12 +1,14 @@
-const divs = document.querySelectorAll(".grid-item");
 const menu = document.querySelector(".menu");
 const startBtn = document.querySelector(".btn-start");
 const resetBtn = document.querySelector(".btn-reset");
 const square = document.querySelector(".square");
 const scoreLabel = document.querySelector(".score-label");
 const timerLabel = document.querySelector(".timer-label");
+const boardHeight = document.querySelector(".board").clientHeight;
+const boardWidth = document.querySelector(".board").clientWidth;
 
 const startTime = 30;
+const squareSize = 25;
 
 let score = 0;
 let timer = startTime;
@@ -18,7 +20,7 @@ startBtn.addEventListener("click", (e) => {
   menu.classList.add("hidden");
   interval = setInterval("decrementTimer()", 1000);
   square.addEventListener("click", addScore);
-  divs[generateRandom(divs.length)].appendChild(square);
+  moveSquare();
 });
 
 resetBtn.addEventListener("click", (e) => {
@@ -61,5 +63,12 @@ function endGame() {
 function addScore() {
   score++;
   scoreLabel.innerText = score;
-  divs[generateRandom(divs.length)].appendChild(square);
+  moveSquare();
+}
+
+function moveSquare() {
+  xPos = generateRandom(boardWidth - squareSize);
+  yPos = generateRandom(boardHeight - squareSize);
+  square.style.top = yPos + "px";
+  square.style.left = xPos + "px";
 }

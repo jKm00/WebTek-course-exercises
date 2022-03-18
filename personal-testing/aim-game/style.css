@@ -16,6 +16,7 @@ body {
   left: 0;
   right: 0;
   background-color: rgba(255, 255, 255, 0.1);
+  z-index: 100;
 }
 
 .btn {
@@ -35,21 +36,20 @@ body {
   gap: 1em;
 }
 
-.grid {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(20, 25px);
-  grid-template-rows: repeat(20, 25px);
-  border: 1px #1d1d1d dotted;
+.board {
+  height: 502px;
+  width: 502px;
   background-color: #1d1d1d;
   border-radius: 2px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .square {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 25px;
+  height: 25px;
   background: red;
   border-radius: 100vw;
+  position: absolute;
 }
