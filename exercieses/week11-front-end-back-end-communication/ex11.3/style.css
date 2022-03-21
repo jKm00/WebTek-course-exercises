@@ -1,0 +1,38 @@
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3em;
+}
+
+.img-container div {
+  --size: 20rem;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  background-image: url(dice.webp);
+  background-size: 71rem;
+}
+
+.one {
+  background-position: 0px 0px;
+}
+
+.two {
+  background-position: 728px 0px;
+}
+
+.three {
+  background-position: 323px 0px;
+}
+
+.four {
+  background-position: 0px 320px;
+}
+
+.five {
+  background-position: 728px 320px;
+}
+
+.six {
+  background-position: 323px 320px;
+}
