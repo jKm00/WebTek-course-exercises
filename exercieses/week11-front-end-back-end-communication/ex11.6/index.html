@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <p class="js">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, magni!
+    </p>
+    <p class="js">
+      Aspernatur perspiciatis nisi ex odio voluptates autem at debitis sunt!
+    </p>
+    <p class="js">
+      Optio alias deleniti nobis ducimus impedit! Minus ut eveniet possimus?
+    </p>
+    <p class="js">
+      Facere iusto tenetur necessitatibus repellendus. Facilis, exercitationem.
+      Accusamus, fugit et.
+    </p>
+    <p class="js">
+      Non id beatae necessitatibus nobis quia facilis suscipit saepe voluptatem.
+    </p>
+
+    <p class="jquery">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus,
+      cumque.
+    </p>
+    <p class="jquery">
+      Molestiae in ipsam iusto consequuntur doloribus impedit qui minus
+      accusantium.
+    </p>
+    <p class="jquery">
+      Quia tempore, saepe minus quisquam sint expedita enim molestias hic.
+    </p>
+    <p class="jquery">
+      Culpa animi nemo enim libero doloribus maxime architecto aut est?
+    </p>
+    <p class="jquery">
+      Nostrum animi nulla harum, ex neque tempora voluptatibus cupiditate
+      officiis.
+    </p>
+
+    <script>
+      document.querySelectorAll(".js").forEach((p) => {
+        p.innerText = "normal js woz here";
+      });
+
+      $(".jquery").each(function () {
+        $(this).html("jquery woz here");
+      });
+    </script>
+  </body>
+</html>
