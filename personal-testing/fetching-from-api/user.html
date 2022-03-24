@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API fetching - User</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="post-username">Posts by: <span data-username></span></h1>
+      <div class="posts"></div>
+    </main>
+    <script>
+      const username = document.querySelector("[data-username]");
+      const postsWrapper = document.querySelector(".posts");
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const id = urlParams.get("id");
+
+      const API_URL = "https://jsonplaceholder.typicode.com/posts";
+
+      fetch(API_URL + "?userId=" + id)
+        .then((response) => response.json())
+        .then((data) => displayPosts(data));
+
+      function displayPosts(posts) {
+        username.innerText = posts[0].userId;
+
+        posts.forEach((post) => {
+          const postDiv = document.createElement("div");
+          postDiv.classList.add("post");
+
+          postDiv.innerHTML =
+            "<h2 class='title'>" +
+            post.title +
+            "</h2>" +
+            "<p class='body'>" +
+            post.body +
+            "</p>";
+
+          postsWrapper.appendChild(postDiv);
+        });
+      }
+    </script>
+  </body>
+</html>

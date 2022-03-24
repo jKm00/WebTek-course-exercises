@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API fetching</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="user-title">Users</h1>
+      <div class="users"></div>
+    </main>
+    <script>
+      const API_URL = "https://jsonplaceholder.typicode.com/users";
+      const userWrapper = document.querySelector(".users");
+
+      fetch(API_URL)
+        .then((response) => response.json())
+        .then((data) => displayData(data));
+
+      function displayData(users) {
+        users.forEach((user) => {
+          const userDiv = document.createElement("a");
+          userDiv.href = "user.html?id=" + user.id;
+          userDiv.classList.add("user");
+          userDiv.innerHTML =
+            "<p class='name'>" +
+            user.name +
+            "</p>" +
+            "<h1 class='username'>" +
+            user.username +
+            "</h1>" +
+            "<p class='email'>" +
+            user.email +
+            "</p>" +
+            "<p class='phone'>" +
+            user.phone +
+            "</p>" +
+            "<p class='website'>" +
+            user.website +
+            "</p>";
+          userWrapper.appendChild(userDiv);
+        });
+      }
+    </script>
+  </body>
+</html>

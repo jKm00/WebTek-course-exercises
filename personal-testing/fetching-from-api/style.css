@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.user-title {
+  margin-bottom: 1em;
+}
+
+.user {
+  display: grid;
+  grid-template-areas:
+    "name email"
+    "username phone"
+    "username website";
+  row-gap: 0.5em;
+  width: 40rem;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  border-radius: 5px;
+  color: #1d1d1d;
+  text-decoration: none;
+}
+
+.name {
+  grid-area: name;
+}
+
+.username {
+  align-self: end;
+  grid-area: username;
+  text-transform: uppercase;
+}
+
+.email,
+.phone,
+.website {
+  justify-self: end;
+}
+
+main {
+  width: fit-content;
+  margin: 3em auto;
+}
+
+.post-username {
+  margin-bottom: 1em;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 35rem;
+  background-color: #fff;
+  padding: 2em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.title {
+  text-transform: uppercase;
+}
