@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 11.7</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <button>Throw dice</button>
+    <p></p>
+
+    <script>
+      const API_URL = "https://web-tek.ninja/php_backend/throw_a_dice.php";
+
+      $("button").on("click", function () {
+        $.get(API_URL, function (data) {
+          $("p").text("You threw: " + data);
+        });
+      });
+    </script>
+  </body>
+</html>
