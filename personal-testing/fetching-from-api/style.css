@@ -11,6 +11,25 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+nav {
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+nav a {
+  display: block;
+  padding: 1em 2em;
+  text-decoration: none;
+  color: #1d1d1d;
+  text-transform: uppercase;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
 .users {
   display: flex;
   flex-direction: column;
