@@ -1,7 +1,7 @@
 $ pwd		Print working directory
 $ cd		Change working directory
 $ ls		List contents of current directory
-$ ls -la		List contents with more info
+$ ls -la	ls List contents with more info
 $ ls -l		List contents with medium info
 $ cat		Print contents of a file (Also: head & tail)
 $ less		See contents of a file (in simple editor)
