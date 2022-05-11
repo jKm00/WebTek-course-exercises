@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+input:focus {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1d1d1d;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 5em 0;
+}
+
+.box {
+  --padding: 1rem;
+  background-color: #262626;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  padding: var(--padding);
+  background-color: #404040;
+}
+
+.input {
+  padding: 0.75rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.input:focus {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+  background-color: hsl(
+    var(--hue, 0),
+    var(--saturation, 0%),
+    var(--lightness, 55%)
+  );
+  color: #fff;
+  padding: 0 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.btn--important {
+  --hue: 180;
+  --saturation: 100%;
+  --lightness: 50%;
+  color: #1d1d1d;
+}
+
+.btn:hover {
+  --lightness: 45%;
+}
+
+.btn:active {
+  --lightness: 40%;
+}
+
+.list {
+  list-style: none;
+  padding: var(--padding);
+  color: #fff;
+  min-height: 7rem;
+  max-height: 40rem;
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.list::-webkit-scrollbar-track {
+  background-color: #1d1d1d;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: #333333;
+}
+
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem;
+}
+
+.delete {
+  color: #ff6666;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.error-msg {
+  margin-top: 1.5rem;
+  text-align: center;
+  opacity: 0.6;
+}
