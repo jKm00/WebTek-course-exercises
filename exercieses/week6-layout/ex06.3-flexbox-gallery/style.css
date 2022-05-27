@@ -13,7 +13,7 @@
 }
 
 #gallery-container img {
-  width: 200px;
-  height: 150px;
+  flex-basis: 200px;
+  max-height: 150px;
   margin: 20px;
 }
