@@ -1,0 +1,35 @@
+.swiper {
+  outline: 1px solid red;
+  display: flex;
+  //overflow: hidden;
+  position: relative;
+}
+
+.swiper__nav-btn {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: var(--fs, 2rem);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper__nav-btn--left {
+  left: 1rem;
+}
+
+.swiper__nav-btn--right {
+  right: 1rem;
+}
+
+.swiper__item {
+  outline: 1px solid lime;
+  flex: 1 0 100%;
+}
+
+.swiper__item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
